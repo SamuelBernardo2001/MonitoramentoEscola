@@ -13,6 +13,7 @@ import java.util.List;
 @Setter
 @Builder
 @Entity
+@Table (name = "professor")
 public class ProfessorModel {
 
     @Id

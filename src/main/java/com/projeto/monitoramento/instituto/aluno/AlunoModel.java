@@ -10,6 +10,7 @@ import lombok.*;
 @Setter
 @Builder
 @Entity
+@Table (name = "aluno")
 public class AlunoModel {
 
     @Id

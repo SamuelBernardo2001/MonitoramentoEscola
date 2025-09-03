@@ -9,6 +9,7 @@ import lombok.*;
 @Setter
 @Builder
 @Entity
+@Table (name = "escola")
 public class EscolaModel {
 
     @Id

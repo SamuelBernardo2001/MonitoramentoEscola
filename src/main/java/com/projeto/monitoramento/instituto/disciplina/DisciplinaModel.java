@@ -11,6 +11,7 @@ import lombok.*;
 @Setter
 @Builder
 @Entity
+@Table (name = "disciplina")
 public class DisciplinaModel {
 
     @Id
