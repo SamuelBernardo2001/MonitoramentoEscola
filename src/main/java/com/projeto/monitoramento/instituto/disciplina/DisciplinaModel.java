@@ -1,9 +1,8 @@
 package com.projeto.monitoramento.instituto.disciplina;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.projeto.monitoramento.instituto.professor.ProfessorModel;
+import com.projeto.monitoramento.instituto.turma.TurmaModel;
+import jakarta.persistence.*;
 import lombok.*;
 
 @AllArgsConstructor
@@ -19,4 +18,14 @@ public class DisciplinaModel {
     private Long id;
 
     private String nome;
+
+    // Disciplina -> Professor (N:1)
+    @ManyToOne
+    @JoinColumn(name = "professor_id")
+    private ProfessorModel professor;
+
+    // Disciplina -> Turma (N:1)
+    @ManyToOne
+    @JoinColumn(name = "turma_id")
+    private TurmaModel turma;
 }

@@ -1,10 +1,11 @@
 package com.projeto.monitoramento.instituto.professor;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.projeto.monitoramento.instituto.disciplina.DisciplinaModel;
+import com.projeto.monitoramento.instituto.turma.TurmaModel;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,4 +23,12 @@ public class ProfessorModel {
     private String email;
     private String telefone;
     private String especialidade;
+
+    // Professor -> Turmas (1:N)
+    @OneToMany(mappedBy = "professor", cascade = CascadeType.ALL)
+    private List<TurmaModel> turmas;
+
+    // Professor -> Disciplinas (1:N)
+    @OneToMany(mappedBy = "professor", cascade = CascadeType.ALL)
+    private List<DisciplinaModel> disciplinas;
 }

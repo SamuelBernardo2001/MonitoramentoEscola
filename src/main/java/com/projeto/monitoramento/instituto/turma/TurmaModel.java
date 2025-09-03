@@ -1,10 +1,12 @@
 package com.projeto.monitoramento.instituto.turma;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.projeto.monitoramento.instituto.aluno.AlunoModel;
+import com.projeto.monitoramento.instituto.disciplina.DisciplinaModel;
+import com.projeto.monitoramento.instituto.professor.ProfessorModel;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,4 +23,17 @@ public class TurmaModel {
     private String nome;
     private String ano;
     private String turno;
+
+    // Turma -> Professor (N:1)
+    @ManyToOne
+    @JoinColumn(name = "professor_id")
+    private ProfessorModel professor;
+
+    // Turma -> Alunos (1:N)
+    @OneToMany(mappedBy = "turma", cascade = CascadeType.ALL)
+    private List<AlunoModel> alunos;
+
+    // Turma -> Disciplinas (1:N)
+    @OneToMany(mappedBy = "turma", cascade = CascadeType.ALL)
+    private List<DisciplinaModel> disciplinas;
 }
