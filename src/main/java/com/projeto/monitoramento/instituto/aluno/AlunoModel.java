@@ -1,6 +1,7 @@
 package com.projeto.monitoramento.instituto.aluno;
 
 import com.projeto.monitoramento.instituto.turma.TurmaModel;
+import com.projeto.monitoramento.responsavel.ResponsavelModel;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,5 +28,10 @@ public class AlunoModel {
     @ManyToOne
     @JoinColumn(name = "turma_id")
     private TurmaModel turma;
+
+    // Aluno -> Responsável (N:1)
+    @ManyToOne
+    @JoinColumn(name = "responsavel_id")
+    private ResponsavelModel responsavel;
 }
 
