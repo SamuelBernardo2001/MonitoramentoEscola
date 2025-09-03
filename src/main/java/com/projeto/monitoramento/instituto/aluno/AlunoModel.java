@@ -21,7 +21,6 @@ public class AlunoModel {
     private String matricula;
     private int comportamento;
     private int desempenho;
-    private int frequencia;
 
     // Aluno -> Turma (N:1)
     @ManyToOne
