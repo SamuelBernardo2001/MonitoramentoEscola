@@ -1,6 +1,8 @@
 package com.projeto.monitoramento.instituto.professor;
 
+import com.projeto.monitoramento.instituto.aluno.AlunoModel;
 import com.projeto.monitoramento.instituto.disciplina.DisciplinaModel;
+import com.projeto.monitoramento.instituto.escola.EscolaModel;
 import com.projeto.monitoramento.instituto.turma.TurmaModel;
 import jakarta.persistence.*;
 import lombok.*;
@@ -32,4 +34,11 @@ public class ProfessorModel {
     // Professor -> Disciplinas (1:N)
     @OneToMany(mappedBy = "professor", cascade = CascadeType.ALL)
     private List<DisciplinaModel> disciplinas;
+
+    @OneToMany(mappedBy = "professor", cascade = CascadeType.ALL)
+    private List<AlunoModel> alunos;
+
+    @ManyToOne
+    @JoinColumn(name = "escola_id")
+    private EscolaModel escola;
 }
