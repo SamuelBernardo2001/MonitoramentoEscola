@@ -2,6 +2,7 @@ package com.projeto.monitoramento.instituto.aluno;
 
 import com.projeto.monitoramento.instituto.dadosAcademicos.frequencia.FrequenciaModel;
 import com.projeto.monitoramento.instituto.dadosAcademicos.notas.NotaModel;
+import com.projeto.monitoramento.instituto.dadosAcademicos.relatorio.RelatorioAlunoModel;
 import com.projeto.monitoramento.instituto.escola.EscolaModel;
 import com.projeto.monitoramento.instituto.professor.ProfessorModel;
 import com.projeto.monitoramento.instituto.turma.TurmaModel;
@@ -60,5 +61,8 @@ public class AlunoModel {
 
     @OneToMany(mappedBy = "aluno", cascade = CascadeType.ALL)
     private List<FrequenciaModel> frequencias;
+
+    @OneToMany(mappedBy = "aluno", cascade = CascadeType.ALL)
+    private List<RelatorioAlunoModel> relatorios;
 }
 
