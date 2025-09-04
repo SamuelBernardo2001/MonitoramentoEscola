@@ -1,6 +1,7 @@
 package com.projeto.monitoramento.responsavel;
 
 import com.projeto.monitoramento.instituto.aluno.AlunoModel;
+import com.projeto.monitoramento.instituto.professor.ProfessorModel;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,5 +28,4 @@ public class ResponsavelModel {
     // Relacionamento: Responsável -> Aluno (1:N)
     @OneToMany(mappedBy = "responsavel", cascade = CascadeType.ALL)
     private List<AlunoModel> alunos;
-
 }
