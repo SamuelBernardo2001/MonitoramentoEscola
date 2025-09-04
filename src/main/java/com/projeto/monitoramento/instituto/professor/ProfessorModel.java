@@ -49,7 +49,12 @@ public class ProfessorModel {
     private List<DisciplinaModel> disciplinas;
 
     // Professor -> Alunos (1:N) : Um professor pode ser tutor de vários alunos
-    @OneToMany(mappedBy = "professor", cascade = CascadeType.ALL)
+    @ManyToMany
+    @JoinTable(
+            name = "professor_aluno",
+            joinColumns = @JoinColumn(name = "professor_id"),
+            inverseJoinColumns = @JoinColumn(name = "aluno_id")
+    )
     private List<AlunoModel> alunos;
 
     // Professor -> Escola (N:1) : Cada professor pertence a uma escola

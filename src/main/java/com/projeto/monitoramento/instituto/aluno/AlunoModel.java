@@ -4,6 +4,7 @@ import com.projeto.monitoramento.instituto.dadosAcademicos.frequencia.Frequencia
 import com.projeto.monitoramento.instituto.dadosAcademicos.notas.NotaModel;
 import com.projeto.monitoramento.instituto.dadosAcademicos.relatorio.RelatorioAlunoModel;
 import com.projeto.monitoramento.instituto.escola.EscolaModel;
+import com.projeto.monitoramento.instituto.professor.ProfessorModel;
 import com.projeto.monitoramento.instituto.turma.TurmaModel;
 import com.projeto.monitoramento.responsavel.ResponsavelModel;
 import com.projeto.monitoramento.instituto.disciplina.DisciplinaModel;
@@ -87,4 +88,8 @@ public class AlunoModel {
             inverseJoinColumns = @JoinColumn(name = "disciplina_id")
     )
     private Set<DisciplinaModel> disciplinas;
+
+    @ManyToMany(mappedBy = "alunos")
+    private List<ProfessorModel> professores;
+
 }
