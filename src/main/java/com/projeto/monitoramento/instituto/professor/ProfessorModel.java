@@ -1,6 +1,7 @@
 package com.projeto.monitoramento.instituto.professor;
 
 import com.projeto.monitoramento.instituto.aluno.AlunoModel;
+import com.projeto.monitoramento.instituto.dadosAcademicos.relatorio.RelatorioAlunoModel;
 import com.projeto.monitoramento.instituto.disciplina.DisciplinaModel;
 import com.projeto.monitoramento.instituto.escola.EscolaModel;
 import com.projeto.monitoramento.instituto.turma.TurmaModel;
@@ -41,4 +42,9 @@ public class ProfessorModel {
     @ManyToOne
     @JoinColumn(name = "escola_id")
     private EscolaModel escola;
+
+    //Cada professor pode criar muitos relatórios sobre diferentes alunos:
+    @OneToMany(mappedBy = "professor", cascade = CascadeType.ALL)
+    private List<RelatorioAlunoModel> relatorios;
+
 }
